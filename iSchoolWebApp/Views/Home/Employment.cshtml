@@ -1,6 +1,6 @@
 ﻿@model iSchoolWebApp.Models.EmploymentRootModel
 @{
-    ViewData["Title"] = "Employment";
+	ViewData["Title"] = "Employment";
 }
 
 <h1>Employment</h1>
@@ -19,6 +19,26 @@
 		</h3>
 		<h3 style="font-size:small">
 			@stats.description
+		</h3>
+	}
+</div>
+
+<div class="someEmployers">
+	<h1>@Model.employers.title</h1>
+	@foreach (var employer in Model.employers.employerNames)
+	{
+		<h3 style="font-size:small">
+			@employer
+		</h3>
+	}
+</div>
+
+<div class="someCareers">
+	<h1>@Model.careers.title</h1>
+	@foreach (var career in Model.careers.careerNames)
+	{
+		<h3 style="font-size:small">
+			@career
 		</h3>
 	}
 </div>
