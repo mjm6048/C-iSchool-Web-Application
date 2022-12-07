@@ -4,59 +4,21 @@
 }
 
 <h1>Employment</h1>
-<div>@Model.introduction</div>
-<div>@Model.degreeStatistics</div>
+<h2>@Model.introduction.title</h2>
+<div class="employment">
+	<h2>@Model.introduction.content[0].title</h2>
+	<h2>@Model.introduction.content[0].description</h2>
+</div>
 
-@foreach (var undergraduateDegree in Model.undergraduate)
-{
-		<div class="undergraduateDegrees">
-			<h3 style="font-size:small">
-			@undergraduateDegree.degreeName
-			</h3>
-			<h3 style="font-size:small">
-			@undergraduateDegree.title
-			</h3>
-			<h3 style="font-size:small">
-			@undergraduateDegree.description
-			</h3>
-		@foreach (var concentration in @undergraduateDegree.concentrations)
-		{
-					<h3 style="font-size:small">
-				@concentration
-					</h3>
-		}
-		</div>
-}
-
-@foreach (var graduateDegree in Model.graduate)
-{
-		<div class="graduateDegrees">
-			<h3 style="font-size:small">
-			@graduateDegree.degreeName
-			</h3>
-			<h3 style="font-size:small">
-			@graduateDegree.title
-			</h3>
-			<h3 style="font-size:small">
-			@graduateDegree.description
-			</h3>
-		@if (@graduateDegree.concentrations != null)
-		{
-			@foreach (var concentration in @graduateDegree.concentrations)
-			{
-							<h3 style="font-size:small">
-					@concentration
-							</h3>
-			}
-		}
-		@if (@graduateDegree.availableCertificates != null)
-		{
-			@foreach (var certificate in @graduateDegree.availableCertificates)
-			{
-							<h3 style="font-size:small">
-					@certificate
-							</h3>
-			}
-		}
-		</div>
-}
+<div class="degreeStatistics">
+	<h1>@Model.degreeStatistics.title</h1>
+	@foreach (var stats in Model.degreeStatistics.statistics)
+	{
+		<h3 style="font-size:small">
+			@stats.value
+		</h3>
+		<h3 style="font-size:small">
+			@stats.description
+		</h3>
+	}
+</div>
