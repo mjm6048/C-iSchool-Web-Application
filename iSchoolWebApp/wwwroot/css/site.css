@@ -1,0 +1,38 @@
+/* Michael's Styles*/
+
+.about{
+    padding: 2.5%;
+    margin: 4.5%;
+    border: solid 5px orange;
+    text-align: center;
+}
+
+.person {
+    min-height: 260px;
+    width: 200px;
+    display: inline-table;
+}
+
+.person > img {
+    max-height: 200px;
+}
+
+/* End Michael additions */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

@@ -1,0 +1,39 @@
+﻿@model iSchoolWebApp.Models.PeopleRootModel
+@{
+    ViewData["Title"] = "People";
+}
+
+<h1>People</h1>
+<div>@Model.title</div>
+<div>@Model.subTitle</div>
+<h2>Faculty</h2>
+
+@foreach (var person in Model.faculty) 
+{
+    <div class="person">
+        <img src="@person.imagePath" alt="" />
+        <div class="caption">
+            <h3 style="font-size:small">
+                @person.name
+            </h3>
+            <h3 style="font-size:small">
+                @person.title
+            </h3>
+            <h3 style="font-size:small">
+                @person.office
+            </h3>
+                <h3 style="font-size:small">
+                @person.phone
+            </h3>
+            <h3 style="font-size:small">
+                @person.email
+            </h3>
+            @if (@person.website != "")
+            {
+                <h3 style="font-size:small">
+                <a href="@person.website" target="_blank">Site</a>
+                </h3>
+            }
+        </div>
+    </div>
+}

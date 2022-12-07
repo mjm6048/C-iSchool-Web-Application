@@ -1,0 +1,62 @@
+﻿@model iSchoolWebApp.Models.EmploymentRootModel
+@{
+    ViewData["Title"] = "Employment";
+}
+
+<h1>Employment</h1>
+<div>@Model.introduction</div>
+<div>@Model.degreeStatistics</div>
+
+@foreach (var undergraduateDegree in Model.undergraduate)
+{
+		<div class="undergraduateDegrees">
+			<h3 style="font-size:small">
+			@undergraduateDegree.degreeName
+			</h3>
+			<h3 style="font-size:small">
+			@undergraduateDegree.title
+			</h3>
+			<h3 style="font-size:small">
+			@undergraduateDegree.description
+			</h3>
+		@foreach (var concentration in @undergraduateDegree.concentrations)
+		{
+					<h3 style="font-size:small">
+				@concentration
+					</h3>
+		}
+		</div>
+}
+
+@foreach (var graduateDegree in Model.graduate)
+{
+		<div class="graduateDegrees">
+			<h3 style="font-size:small">
+			@graduateDegree.degreeName
+			</h3>
+			<h3 style="font-size:small">
+			@graduateDegree.title
+			</h3>
+			<h3 style="font-size:small">
+			@graduateDegree.description
+			</h3>
+		@if (@graduateDegree.concentrations != null)
+		{
+			@foreach (var concentration in @graduateDegree.concentrations)
+			{
+							<h3 style="font-size:small">
+					@concentration
+							</h3>
+			}
+		}
+		@if (@graduateDegree.availableCertificates != null)
+		{
+			@foreach (var certificate in @graduateDegree.availableCertificates)
+			{
+							<h3 style="font-size:small">
+					@certificate
+							</h3>
+			}
+		}
+		</div>
+}

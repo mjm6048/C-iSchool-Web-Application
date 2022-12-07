@@ -1,0 +1,11 @@
+﻿@model iSchoolWebApp.Models.AboutRootModel
+@{
+    ViewData["Title"] = "About Page";
+}
+
+<h1>@Model.title</h1>
+<div class="about">
+    <p>@Model.description</p>
+    <p>@Model.quote</p>
+    <p>--- @Model.quoteAuthor ---</p>
+</div>

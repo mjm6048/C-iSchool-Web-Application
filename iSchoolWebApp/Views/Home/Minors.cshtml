@@ -1,0 +1,33 @@
+﻿@model iSchoolWebApp.Models.MinorsRootModel
+@{
+	ViewData["Title"] = "Minors";
+}
+
+<h1>Minors</h1>
+
+@foreach (var undergraduateMinor in Model.UgMinors)
+{
+	<div class="undergraduateMinors">
+		<h3 style="font-size:small">
+			@undergraduateMinor.name
+		</h3>
+		<h3 style="font-size:small">
+			@undergraduateMinor.title
+		</h3>
+		<h3 style="font-size:small">
+			@undergraduateMinor.description
+		</h3>
+		@foreach (var course in @undergraduateMinor.courses)
+		{
+			<h3 style="font-size:small">
+				@course
+			</h3>
+		}
+		@if (@undergraduateMinor.note != "")
+		{
+			<h3 style="font-size:small">
+				@undergraduateMinor.note
+			</h3>
+		}
+	</div>
+}
