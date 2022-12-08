@@ -42,3 +42,31 @@
 		</h3>
 	}
 </div>
+<h3 style="font-size:small">*Employers/Careers are randomly pulled from our recent graduates</h3>
+
+<table id="employment_id" class="display">
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Row 1 Data 1</td>
+			<td>Row 1 Data 2</td>
+		</tr>
+		<tr>
+			<td>Row 2 Data 1</td>
+			<td>Row 2 Data 2</td>
+		</tr>
+	</tbody>
+</table>
+
+@section Scripts {
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#employment_id').DataTable();
+		});
+	</script>
+}
