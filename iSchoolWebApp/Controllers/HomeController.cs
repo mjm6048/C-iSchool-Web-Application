@@ -88,12 +88,14 @@ namespace iSchoolWebApp.Controllers
             return View(returnResults);
         }
 
-        public async Task<IActionResult> Course()
+        [HttpGet]
+        [Route("Home/Course/{courseID}")]
+        public async Task<IActionResult> Course(String courseID)
         {
             //load the data...
             DataRetrieval dataRet = new DataRetrieval();
             //tell the instance to go get the data...
-            var loadedCourse = await dataRet.GetData("course/courseID=ISTE-340");
+            var loadedCourse = await dataRet.GetData("course/courseID="+courseID);
             //cast it to json and the objects that we want.
             var returnResults = JsonConvert.DeserializeObject<CourseRootModel>(loadedCourse);
             return View(returnResults);

@@ -20,7 +20,7 @@
 		@foreach (var course in @undergraduateMinor.courses)
 		{
 			<h3 style="font-size:small">
-				@course
+				<a href="Course/@course"> @course </a>
 			</h3>
 		}
 		@if (@undergraduateMinor.note != "")
