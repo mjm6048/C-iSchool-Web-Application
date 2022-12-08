@@ -15,14 +15,9 @@ namespace iSchoolWebApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        public async Task<IActionResult> About()
-        {
-            /*
+			/*
              * My steps
              * 1. Go get the data
              * - In order to do that, I need to spin up my data getting class.
@@ -30,13 +25,13 @@ namespace iSchoolWebApp.Controllers
              * 2. Apply it to my Model.
              * 3. Send the model to view.
              */
-            //load my getData class
-            DataRetrieval dataRet = new DataRetrieval();
-            var loadedAbout = await dataRet.GetData("about/");
-            // What is it? A string! Need Json. Use Newtonsoft Json!
-            var returnValue = JsonConvert.DeserializeObject<AboutRootModel>(loadedAbout);
-            return View(returnValue);
-        }
+			//load my getData class
+			DataRetrieval dataRet = new DataRetrieval();
+			var loadedAbout = await dataRet.GetData("about/");
+			// What is it? A string! Need Json. Use Newtonsoft Json!
+			var returnValue = JsonConvert.DeserializeObject<AboutRootModel>(loadedAbout);
+			return View(returnValue);
+		}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
