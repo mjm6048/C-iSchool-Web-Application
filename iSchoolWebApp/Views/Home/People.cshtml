@@ -1,6 +1,6 @@
 ﻿@model iSchoolWebApp.Models.PeopleRootModel
 @{
-    ViewData["Title"] = "People";
+	ViewData["Title"] = "People";
 }
 
 <h1>People</h1>
@@ -8,32 +8,93 @@
 <div>@Model.subTitle</div>
 <h2>Faculty</h2>
 
-@foreach (var person in Model.faculty) 
+@foreach (var person in Model.faculty)
 {
-    <div class="person">
-        <img src="@person.imagePath" alt="" />
-        <div class="caption">
-            <h3 style="font-size:small">
-                @person.name
-            </h3>
-            <h3 style="font-size:small">
-                @person.title
-            </h3>
-            <h3 style="font-size:small">
-                @person.office
-            </h3>
-                <h3 style="font-size:small">
-                @person.phone
-            </h3>
-            <h3 style="font-size:small">
-                @person.email
-            </h3>
-            @if (@person.website != "")
-            {
-                <h3 style="font-size:small">
-                <a href="@person.website" target="_blank">Site</a>
-                </h3>
-            }
-        </div>
-    </div>
+	<div class="person">
+		<img src="@person.imagePath" alt="" />
+		<div class="caption">
+			<h3 style="font-size:small">
+				@person.name
+			</h3>
+			<h3 style="font-size:small">
+				@person.tagline
+			</h3>
+			<h3 style="font-size:small">
+				@person.title
+			</h3>
+			<h3 style="font-size:small">
+				@person.office
+			</h3>
+			<h3 style="font-size:small">
+				@person.phone
+			</h3>
+			<h3 style="font-size:small">
+				@person.email
+			</h3>
+			@if (@person.twitter != "" && @person.twitter != null)
+			{
+				<h3 style="font-size:small">
+					Follow me on Twitter at @person.twitter!
+				</h3>
+			}
+			@if (@person.facebook != "" && @person.facebook != null)
+			{
+				<h3 style="font-size:small">
+					Friend me on Facebook at @person.facebook!
+				</h3>
+			}
+			@if (@person.website != "" && @person.website != null)
+			{
+				<h3 style="font-size:small">
+					<a href="@person.website" target="_blank">Site</a>
+				</h3>
+			}
+		</div>
+	</div>
+}
+
+<h2>Faculty</h2>
+@foreach (var staff in Model.staff)
+{
+	<div class="person">
+		<img src="@staff.imagePath" alt="" />
+		<div class="caption">
+			<h3 style="font-size:small">
+				@staff.name
+			</h3>
+			<h3 style="font-size:small">
+				@staff.tagline
+			</h3>
+			<h3 style="font-size:small">
+				@staff.title
+			</h3>
+			<h3 style="font-size:small">
+				@staff.office
+			</h3>
+			<h3 style="font-size:small">
+				@staff.phone
+			</h3>
+			<h3 style="font-size:small">
+				@staff.email
+			</h3>
+			@if (@staff.twitter != "" && @staff.twitter != null)
+			{
+				<h3 style="font-size:small">
+					Follow me on Twitter at @staff.twitter!
+				</h3>
+			}
+			@if (@staff.facebook != "" && @staff.facebook != null)
+			{
+				<h3 style="font-size:small">
+					Friend me on Facebook at @staff.facebook!
+				</h3>
+			}
+			@if (@staff.website != "" && @staff.website != null)
+			{
+				<h3 style="font-size:small">
+					<a href="@staff.website" target="_blank">Site</a>
+				</h3>
+			}
+		</div>
+	</div>
 }
