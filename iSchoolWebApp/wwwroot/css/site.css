@@ -19,14 +19,13 @@
 }
 
 /* Rules for Degrees */
-.degreesList {
+.degreesList, .statsList {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-
 }
 
-.degreesList > * {
+.degreesList > *, .statsList > * {
     flex: 180px;
 }
 
@@ -62,6 +61,45 @@
     border: solid 5px orange;
     text-align: center;
     background-color: whitesmoke;
+}
+
+.employment {
+    text-align: center;
+}
+
+.degreeStatistics {
+    min-height: 250px;
+    margin: 0.5em;
+    padding-top: 1em;
+    border: 3px solid rgb(104, 109, 33);
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+.smallEmployment, .smallCareers {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+    background: whitesmoke;
+    justify-content: center;
+}
+
+.smallEmploymentItem, .smallCareerItem {
+    display: inline-block;
+    margin: 1%;
+    text-transform: uppercase;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.smallEmploymentItem > *, .smallCareerItem > * {
+    flex: 150px;
+}
+
+.employmentTable, .careerTable {
+    background-color: whitesmoke;
+    margin: 2em;
+    padding: 2em;
 }
 
 /* End Michael additions */
