@@ -3,68 +3,80 @@
 	ViewData["Title"] = "Degrees";
 }
 
-<h1>Degrees</h1>
-
+<h1 style="text-align: center">Degrees</h1>
 <h2>Our Undergraduate Degrees</h2>
 
-@foreach (var undergraduateDegree in Model.undergraduate)
-{
-	<div class="undergraduateDegrees">
-		<h3 style="font-size:small">
-			@undergraduateDegree.title
-		</h3>
-		<h3 style="font-size:small">
-			@undergraduateDegree.description
-		</h3>
-		@foreach (var concentration in @undergraduateDegree.concentrations)
-		{
+<div class="degreesList">
+	@foreach (var undergraduateDegree in Model.undergraduate)
+	{
+		<div class="undergraduateDegrees">
 			<h3 style="font-size:small">
-				@concentration
+				@undergraduateDegree.title
 			</h3>
-		}
-	</div>
-}
-
-@*Made this in order to remove the Graduate Advanced Certificates at the end so I could 
-loop through the list to output only the Graduate Degrees.*@
-@{
-	var removeCertificates = Model.graduate.ToList();
-	removeCertificates.RemoveAt(removeCertificates.Count - 1);
-}
-
-<h2>Our Graduate Degrees</h2>
-@foreach (var graduateDegree in removeCertificates)
-{
-	<div class="graduateDegrees">
-		<h3 style="font-size:small">
-			@graduateDegree.title
-		</h3>
-		<h3 style="font-size:small">
-			@graduateDegree.description
-		</h3>
-		@if (@graduateDegree.concentrations != null)
-		{
-			@foreach (var concentration in @graduateDegree.concentrations)
+			<h3 style="font-size:small">
+				@undergraduateDegree.description
+			</h3>
+			@foreach (var concentration in @undergraduateDegree.concentrations)
 			{
 				<h3 style="font-size:small">
 					@concentration
 				</h3>
 			}
-		}
-	</div>
-}
-
-<h2>Our Graduate Advanced Certificates</h2>
-
-@foreach (var graduateCertificates in Model.graduate)
-{
-	@if (@graduateCertificates.availableCertificates != null)
-	{
-		@foreach (var certificate in @graduateCertificates.availableCertificates)
-		{
-			<h3 style="font-size:small">
-				@certificate
-			</h3>
-		}
+		</div>
 	}
-}
+</div>
+
+	<hr />
+	<h2>Our Graduate Degrees</h2>
+
+	<div class="degreesList">
+	@*Made this in order to remove the Graduate Advanced Certificates at the end so I could
+	loop through the list to output only the Graduate Degrees.*@
+	@{
+		var removeCertificates = Model.graduate.ToList();
+		removeCertificates.RemoveAt(removeCertificates.Count - 1);
+	}
+
+	
+	@foreach (var graduateDegree in removeCertificates)
+	{
+		<div class="graduateDegrees">
+			<h3 style="font-size:small">
+				@graduateDegree.title
+			</h3>
+			<h3 style="font-size:small">
+				@graduateDegree.description
+			</h3>
+			@if (@graduateDegree.concentrations != null)
+			{
+				@foreach (var concentration in @graduateDegree.concentrations)
+				{
+					<h3 style="font-size:small">
+						@concentration
+					</h3>
+				}
+			}
+		</div>
+	}
+</div>
+
+<hr />
+<h2>Our Graduate Advanced Certificates</h2>
+<div class="certificateList" ">
+	@foreach (var graduateCertificates in Model.graduate)
+	{
+	
+		@if (@graduateCertificates.availableCertificates != null)
+		{
+			@foreach (var certificate in @graduateCertificates.availableCertificates)
+			{
+	<div class="certificateListItem">
+				<h3 style="font-size:small">
+					@certificate
+				</h3>
+	</div>
+			}
+		}
+	
+	}
+</div>
