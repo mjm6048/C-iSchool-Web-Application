@@ -31,16 +31,16 @@
 </div>
 
 <hr />
-<h2 style ="text-align:center">Our Graduate Degrees</h2>
+<h2 style="text-align:center">Our Graduate Degrees</h2>
 
-	<div class="degreesList">
+<div class="degreesList">
 	@*Made this in order to remove the Graduate Advanced Certificates at the end so I could
 	loop through the list to output only the Graduate Degrees.*@
 	@{
 		var removeCertificates = Model.graduate.ToList();
 		removeCertificates.RemoveAt(removeCertificates.Count - 1);
 	}
-	
+
 	@foreach (var graduateDegree in removeCertificates)
 	{
 		<div class="graduateDegrees">
@@ -68,18 +68,16 @@
 <div class="certificateList" ">
 	@foreach (var graduateCertificates in Model.graduate)
 	{
-	
 		@if (@graduateCertificates.availableCertificates != null)
 		{
 			@foreach (var certificate in @graduateCertificates.availableCertificates)
 			{
-	<div class="certificateListItem">
-				<h4>
-					@certificate
-				</h4>
-	</div>
+				<div class="certificateListItem">
+					<h4>
+						@certificate
+					</h4>
+				</div>
 			}
 		}
-	
 	}
 </div>

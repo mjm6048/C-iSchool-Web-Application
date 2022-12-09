@@ -4,50 +4,35 @@
 }
 
 <div class="pageTitle">
-	<h1>Employment</h1>
+	<h1>Employment/Careers</h1>
 </div>
 
 <hr />
 
-<h2>@Model.introduction.title</h2>
 <div class="employment">
-	<h2>@Model.introduction.content[0].title</h2>
+	<h1>@Model.introduction.content[0].title</h1>
+	<h2>@Model.introduction.title</h2>
 	<h2>@Model.introduction.content[0].description</h2>
 </div>
 
-<div class="degreeStatistics">
-	<h1>@Model.degreeStatistics.title</h1>
+<hr />
+
+<h1 style="text-align:center">@Model.degreeStatistics.title</h1>
+<div class="statsList">
 	@foreach (var stats in Model.degreeStatistics.statistics)
 	{
-		<h3 style="font-size:small">
-			@stats.value
-		</h3>
-		<h3 style="font-size:small">
-			@stats.description
-		</h3>
+		<div class="degreeStatistics">
+			<h3>
+				@stats.value
+			</h3>
+			<h3>
+				@stats.description
+			</h3>
+		</div>
 	}
-</div>
 
-<div class="someEmployers">
-	<h1>@Model.employers.title</h1>
-	@foreach (var employerSmall in Model.employers.employerNames)
-	{
-		<h3 style="font-size:small">
-			@employerSmall
-		</h3>
-	}
 </div>
-
-<div class="someCareers">
-	<h1>@Model.careers.title</h1>
-	@foreach (var careerSmall in Model.careers.careerNames)
-	{
-		<h3 style="font-size:small">
-			@careerSmall
-		</h3>
-	}
-</div>
-<h3 style="font-size:small">*Employers/Careers are randomly pulled from our recent graduates</h3>
+<hr />
 
 <div class="employmentTable">
 	<table id="employment_id" class="display">
@@ -72,10 +57,11 @@
 		</tbody>
 	</table>
 </div>
+<hr />
 
 <div class="career">
-	<h2>@Model.introduction.content[1].title</h2>
-	<h2>@Model.introduction.content[1].description</h2>
+	<h2 style="text-align:center">@Model.introduction.content[1].title</h2>
+	<h2 style="text-align:center">@Model.introduction.content[1].description</h2>
 </div>
 
 <div class="careerTable">
@@ -101,6 +87,35 @@
 		</tbody>
 	</table>
 </div>
+<hr />
+
+<h1 style="text-align:center">@Model.employers.title</h1>
+<div class="smallEmployment">
+	@foreach (var employerSmall in Model.employers.employerNames)
+	{
+		<div class="smallEmploymentItem">
+			<h3>
+				@employerSmall
+			</h3>
+		</div>
+	}
+</div>
+<hr />
+
+<h1 style="text-align:center">@Model.careers.title</h1>
+<div class="smallCareers">
+	
+	@foreach (var careerSmall in Model.careers.careerNames)
+	{
+		<div class="smallCareerItem">
+		<h3>
+			@careerSmall
+		</h3>
+		</div>
+	}
+</div>
+<h4>*Employers/Careers are randomly pulled from our recent graduates</h4>
+<hr />
 
 @section Scripts {
 	<script type="text/javascript">
