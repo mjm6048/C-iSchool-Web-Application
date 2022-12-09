@@ -1,10 +1,11 @@
 /* Michael's Styles*/
 
-.about{
+.about {
     padding: 2.5%;
     margin: 4.5%;
     border: solid 5px orange;
     text-align: center;
+    background-color: whitesmoke;
 }
 
 .person {
@@ -15,6 +16,43 @@
 
 .person > img {
     max-height: 200px;
+}
+
+/* Rules for Degrees */
+.degreesList {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.degreesList > * {
+    flex: 180px;
+}
+
+.undergraduateDegrees, .graduateDegrees {
+    min-height: 250px;
+    margin: 1em;
+    padding-top: 1em;
+    border: 3px solid rgb(104, 109, 33);
+    border-radius: 15px;
+}
+
+/* Rules for Graduate Certificates */
+.certificateList {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 1em;
+}
+
+.certificateList > * {
+    flex: 180px;
+}
+
+.certificateListItem {
+    border: 3px solid orange;
+    background-color: whitesmoke;
 }
 
 /* End Michael additions */
@@ -34,5 +72,6 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #b3d8f7;
 }
