@@ -15,8 +15,10 @@ namespace iSchoolWebApp.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
-        {
+
+
+		public async Task<IActionResult> About()
+		{
 			/*
              * My steps
              * 1. Go get the data
@@ -33,7 +35,7 @@ namespace iSchoolWebApp.Controllers
 			return View(returnValue);
 		}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
