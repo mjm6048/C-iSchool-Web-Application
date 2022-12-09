@@ -8,30 +8,29 @@
 </div>
 
 <hr />
-
-@foreach (var undergraduateMinor in Model.UgMinors)
-{
-	<div class="undergraduateMinors">
-		<h3 style="font-size:small">
-			@undergraduateMinor.name
-		</h3>
-		<h3 style="font-size:small">
-			@undergraduateMinor.title
-		</h3>
-		<h3 style="font-size:small">
-			@undergraduateMinor.description
-		</h3>
-		@foreach (var course in @undergraduateMinor.courses)
-		{
-			<h3 style="font-size:small">
-				<a href="Course/@course"> @course </a>
-			</h3>
-		}
-		@if (@undergraduateMinor.note != "")
-		{
-			<h3 style="font-size:small">
-				@undergraduateMinor.note
-			</h3>
-		}
-	</div>
-}
+<div class="undergraduateMinorsList">
+	@foreach (var undergraduateMinor in Model.UgMinors)
+	{
+		<div class="undergraduateMinorsItem">
+			<h2>
+				@undergraduateMinor.title
+			</h2>
+			<h4>
+				@undergraduateMinor.description
+			</h4>
+			@foreach (var course in @undergraduateMinor.courses)
+			{
+				<h4>
+					<a href="Course/@course"> @course</a>
+				</h4>
+			}
+			@if (@undergraduateMinor.note != "")
+			{
+				<h4>
+					@undergraduateMinor.note
+				</h4>
+			}
+		</div>
+		<hr />
+	}
+</div>
